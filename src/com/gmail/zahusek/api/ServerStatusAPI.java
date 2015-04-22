@@ -10,10 +10,10 @@ import net.minecraft.util.io.netty.channel.Channel;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import com.gmail.zahusek.Reflection;
-import com.gmail.zahusek.Reflection.ConstructorInvoker;
-import com.gmail.zahusek.Reflection.FieldAccessor;
-import com.gmail.zahusek.TinyProtocol.PacketListener;
+import com.gmail.zahusek.core.Reflection;
+import com.gmail.zahusek.core.Reflection.ConstructorInvoker;
+import com.gmail.zahusek.core.Reflection.FieldAccessor;
+import com.gmail.zahusek.core.TinyProtocol.PacketListener;
 
 public class ServerStatusAPI implements PacketListener {
 
