@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.gmail.zahusek.api.ServerStatusAPI;
+import com.gmail.zahusek.core.TinyProtocol;
 
 public class Main extends JavaPlugin {
 
