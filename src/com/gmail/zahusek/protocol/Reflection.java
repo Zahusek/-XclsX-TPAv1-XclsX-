@@ -1,4 +1,4 @@
-package com.gmail.zahusek.core;
+package com.gmail.zahusek.protocol;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
