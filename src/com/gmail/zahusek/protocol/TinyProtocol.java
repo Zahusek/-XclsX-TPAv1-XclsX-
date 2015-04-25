@@ -1,4 +1,4 @@
-package com.gmail.zahusek.core;
+package com.gmail.zahusek.protocol;
 
 import java.util.ArrayList;
 import java.util.Collections;
