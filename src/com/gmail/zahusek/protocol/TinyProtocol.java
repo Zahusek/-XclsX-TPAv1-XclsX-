@@ -29,12 +29,14 @@ import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.plugin.Plugin;
 
-import com.gmail.zahusek.protocol.Reflection.*;
+import com.gmail.zahusek.protocol.Reflection.FieldAccessor;
+import com.gmail.zahusek.protocol.Reflection.MethodInvoker;
 import com.google.common.collect.Lists;
 import com.google.common.collect.MapMaker;
 
 public class TinyProtocol {
 
+	public static TinyProtocol tinyprotocol;
 	private static final AtomicInteger ID = new AtomicInteger(0);
 
 	private static final MethodInvoker getPlayerHandle = Reflection.getMethod(
@@ -94,6 +96,8 @@ public class TinyProtocol {
 		registerBukkitEvents();
 		registerChannelHandler();
 		registerPlayers(plugin);
+
+		tinyprotocol = this;
 	}
 
 	private void createServerChannelHandler() {
@@ -383,6 +387,10 @@ public class TinyProtocol {
 
 	public void unregisterListener(PacketListener listener) {
 		this.packetListeners.remove(listener);
+	}
+
+	public static TinyProtocol getTinyProtocol() {
+		return tinyprotocol;
 	}
 
 	public interface PacketListener {
