@@ -10,12 +10,12 @@ import net.minecraft.util.io.netty.channel.Channel;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import com.gmail.zahusek.protocol.Reflection;
-import com.gmail.zahusek.protocol.Reflection.ConstructorInvoker;
-import com.gmail.zahusek.protocol.Reflection.FieldAccessor;
-import com.gmail.zahusek.protocol.TinyProtocol.PacketListener;
+import com.gmail.zahusek.protocols.Reflection;
+import com.gmail.zahusek.protocols.Reflection.ConstructorInvoker;
+import com.gmail.zahusek.protocols.Reflection.FieldAccessor;
+import com.gmail.zahusek.protocols.TinyProtocol.PacketListener;
 
-public class ServerStatusAPI implements PacketListener {
+public class ServerStatusAPI extends PacketListener {
 
 	private Class<?> serverInfoClass = Reflection
 			.getClass("{nms}.PacketStatusOutServerInfo");
@@ -127,11 +127,6 @@ public class ServerStatusAPI implements PacketListener {
 							: this.protocolVersion));
 			return packet;
 		}
-		return packet;
-	}
-
-	@Override
-	public Object onPacketInAsync(Player sender, Channel channel, Object packet) {
 		return packet;
 	}
 }
