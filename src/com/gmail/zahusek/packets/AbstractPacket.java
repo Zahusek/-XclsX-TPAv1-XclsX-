@@ -2,21 +2,21 @@ package com.gmail.zahusek.packets;
 
 import org.bukkit.entity.Player;
 
-import com.gmail.zahusek.protocol.TinyProtocol;
+import com.gmail.zahusek.protocols.TinyProtocol;
 
 public abstract class AbstractPacket {
 	
 	protected Object packet;
 	protected TinyProtocol tinyprotocol;
 
-	protected AbstractPacket(Object packet, TinyProtocol tinyprotocol) {
-		this.packet = packet;
+	protected AbstractPacket(TinyProtocol tinyprotocol) {
 		this.tinyprotocol = tinyprotocol;
 	}
+	public void setPacket(Object p) {
+		this.packet = p;
+	}
 	
-	public Object getHandle() { return this.packet; }
+	public void sendPacket(Player receiver) { tinyprotocol.sendPacket(receiver, this.packet); }
 	
-	public void sendPacket(Player receiver) { tinyprotocol.sendPacket(receiver, getHandle()); }
-	
-	public void recievePacket(Player sender) { tinyprotocol.receivePacket(sender, getHandle()); }
+	public void recievePacket(Player sender) { tinyprotocol.receivePacket(sender, this.packet); }
 }
