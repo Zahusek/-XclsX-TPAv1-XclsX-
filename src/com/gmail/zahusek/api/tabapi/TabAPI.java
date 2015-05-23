@@ -46,12 +46,12 @@ public class TabAPI implements Listener {
 	}
 	public void removePlayer(Player p) {
 		User player = User.getUser(p.getName());
-		if(player != null)
 		for(int i = 0; i < player.getPlayers().size(); i++) {
 			String name = player.getPlayer(i);
 			new PlayerInfo($(name), false).sendPacket(p);
-			new ScoreboardTeam(name, 1).sendPacket(p);
+			new ScoreboardTeam(name, name, "", "", new ArrayList<String>(Arrays.asList(name)), 1, 0).sendPacket(p);
 		}
+		player.getPlayers().clear();
 		
 	}
 	private ChatColor[] fuqlist = { ChatColor.UNDERLINE, ChatColor.STRIKETHROUGH,
