@@ -14,7 +14,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.gmail.zahusek.api.tabapi.TabAPI;
 import com.gmail.zahusek.protocols.TinyProtocol;
 
-public class Main extends JavaPlugin implements Listener {
+public class Main extends JavaPlugin {
 
 	protected TinyProtocol protocol;
 	private TabAPI tabapi = new TabAPI(this);
