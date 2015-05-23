@@ -1,38 +1,31 @@
 package com.gmail.zahusek.packets;
 
-import com.gmail.zahusek.protocol.Reflection;
-import com.gmail.zahusek.protocol.TinyProtocol;
+import com.gmail.zahusek.protocols.Reflection;
+import com.gmail.zahusek.protocols.Reflection.FieldAccessor;
+import com.gmail.zahusek.protocols.TinyProtocol;
 
-public class PacketPlayOutPlayerInfo extends AbstractPacket {
+public class PlayerInfo extends AbstractPacket {
 	
-	private static final Object handle = Reflection.getConstructor("{nms}.PacketPlayOutPlayerInfo").invoke();
+	private Class<?> packet = Reflection.getClass("{nms}.PacketPlayOutPlayerInfo");
+	private FieldAccessor<String> name = Reflection.getField(packet, String.class, 0);
+	private FieldAccessor<Boolean> online = Reflection.getField(packet, boolean.class, 0);
+	private FieldAccessor<Integer> ping = Reflection.getField(packet, int.class, 0);
 	
-	public PacketPlayOutPlayerInfo() {
-		super(handle, TinyProtocol.getTinyProtocol());
+	public PlayerInfo(String name, boolean online, int ping) {
+		super(TinyProtocol.getTinyProtocol());
+		Object handle = Reflection.getConstructor("{nms}.PacketPlayOutPlayerInfo").invoke();
+		this.name.set(handle, name);
+		this.online.set(handle, online);
+		this.ping.set(handle, ping);
+		setPacket(handle);
 	}
-    
-	public String getPlayerName() { 
-    	return (String) Reflection.getMethod(packet.getClass(), "a").invoke(packet);
-    }
-    public void setPlayerName(String value) { 
-    	Reflection.getField(packet.getClass(), "a", String.class).set(packet, value); 
-    }
-    
-    public boolean getOnline() { 
-    	return (boolean) Reflection.getMethod(packet.getClass(), "b").invoke(packet);
-    }
-    public void setOnline(boolean value) { 
-    	Reflection.getField(packet.getClass(), "b", boolean.class).set(packet, value);
-    }
-    
-    public int getPing() { 
-    	return (int) Reflection.getMethod(packet.getClass(), "c").invoke(packet);
-    }
-    public void setPing(int value) {
-    	Reflection.getField(packet.getClass(), "c", int.class).set(packet, value);
-    }
-    
-    public void setPacket(String value1, boolean value2, int value3) {
-    	setPlayerName(value1); setOnline(value2); setPing(value3);
-    }
+	
+	public PlayerInfo(String name, boolean online) {
+		super(TinyProtocol.getTinyProtocol());
+		Object handle = Reflection.getConstructor("{nms}.PacketPlayOutPlayerInfo").invoke();
+		this.name.set(handle, name);
+		this.online.set(handle, online);
+		this.ping.set(handle, 9999);
+		setPacket(handle);
+	}
 }
