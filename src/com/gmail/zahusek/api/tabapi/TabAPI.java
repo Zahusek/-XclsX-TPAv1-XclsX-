@@ -22,7 +22,7 @@ public class TabAPI implements Listener {
 	}
 	public void register(){
 		Bukkit.getServer().getPluginManager().registerEvents(this, plg);
-		new PacketEvt();
+		new PacketEvent();
 	}
 	public void unregister(){
 		for(Player online : Bukkit.getServer().getOnlinePlayers())
