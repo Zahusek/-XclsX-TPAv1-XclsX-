@@ -13,7 +13,7 @@ import org.bukkit.plugin.Plugin;
 import com.gmail.zahusek.packets.PlayerInfo;
 import com.gmail.zahusek.packets.ScoreboardTeam;
 
-public class TabAPI implements Listener {
+public class TabAPI {
 	
 	private final Plugin plg;
 	
@@ -21,7 +21,6 @@ public class TabAPI implements Listener {
 		this.plg = plg;
 	}
 	public void register(){
-		Bukkit.getServer().getPluginManager().registerEvents(this, plg);
 		new PacketEvent();
 	}
 	public void unregister(){
