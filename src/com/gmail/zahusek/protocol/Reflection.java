@@ -9,6 +9,12 @@ import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
 
+/**
+ * An utility class that simplifies reflection in Bukkit plugins.
+ * 
+ * @author Kristian - https://github.com/dmulloy2/ProtocolLib/blob/master/Examples/TinyProtocol/src/main/java/com/comphenix/tinyprotocol/Reflection.java
+ */
+
 public final class Reflection {
 
 	public interface ConstructorInvoker {
