@@ -34,6 +34,13 @@ import com.gmail.zahusek.protocols.Reflection.MethodInvoker;
 import com.google.common.collect.Lists;
 import com.google.common.collect.MapMaker;
 
+/**
+ * Represents a very tiny alternative to ProtocolLib.
+ * 
+ * @author Kristian - https://github.com/dmulloy2/ProtocolLib/blob/master/Examples/TinyProtocol/src/main/java/com/comphenix/tinyprotocol/TinyProtocol.java
+ * @modife: ZaHa 
+ */
+
 public class TinyProtocol {
 	
 	private List<PacketListener> protocolsListeners = new ArrayList<PacketListener>();
