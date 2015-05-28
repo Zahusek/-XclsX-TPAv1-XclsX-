@@ -12,3 +12,5 @@ Contains:
 # ServerStatusAPI
 ![ScreenShot](http://i.imgur.com/guCdywA.png)
 
+# ChatAPI
+![ScreenShot](http://i.imgur.com/XcPBdar.png)
