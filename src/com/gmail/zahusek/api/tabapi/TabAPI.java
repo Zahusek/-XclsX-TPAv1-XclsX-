@@ -15,11 +15,6 @@ import com.gmail.zahusek.packets.ScoreboardTeam;
 
 public class TabAPI {
 	
-	private final Plugin plg;
-	
-	public TabAPI(Plugin plg){
-		this.plg = plg;
-	}
 	public void register(){
 		new PacketEvent();
 	}
