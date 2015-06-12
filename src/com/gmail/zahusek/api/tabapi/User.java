@@ -7,7 +7,7 @@ public class User {
 
 	private String name;
 	private ArrayList<String> players;
-	private int x, z;
+	private int x, z, s;
 	private char[] colors = { 'a', 'b', 'c', 'd', 'e', 'f', 'r', '0', '1', '2',
 			'3', '4', '5', '6', '7', '8', '9' };
 
@@ -16,6 +16,7 @@ public class User {
 		this.players = new ArrayList<String>();
 		this.x = 0;
 		this.z = 0;
+		this.s = 0;
 		list.add(this);
 	}
 	public String getName() {
@@ -26,6 +27,12 @@ public class User {
 	}
 	public String getPlayer(int i) {
 		return this.players.get(i);
+	}
+	public int getLastSize() {
+		return this.s;
+	}
+	public void setLastSize(int s) {
+		this.s = s;
 	}
 	public void addPlayer() {
 		String fake = "";
