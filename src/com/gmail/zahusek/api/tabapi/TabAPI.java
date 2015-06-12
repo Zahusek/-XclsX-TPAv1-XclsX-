@@ -29,6 +29,7 @@ public class TabAPI {
 	}
 	public void updatePlayer(Player p, List<String> l) {
 		User player = User.getUser(p.getName());
+		if(player.getLastSize() > l.size()) removePlayer(p);
 		for(int i = 0; i < l.size(); i++) {
 			String whole = l.get(i);
 			String[] display = getDisplay(whole);
@@ -42,6 +43,7 @@ public class TabAPI {
 			String name = player.getPlayer(i);
 			new ScoreboardTeam(name, name, display[0], display[1] , 0).sendPacket(p);
 		}
+		player.setLastSize(l.size());
 	}
 	public void removePlayer(Player p) {
 		User player = User.getUser(p.getName());
